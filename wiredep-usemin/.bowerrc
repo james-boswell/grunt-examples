@@ -1,0 +1,7 @@
+{
+  "directory": "app/bower_components",
+  "registry": "http://bower.herokuapp.com",
+  "proxy":"http://IPLBATH%5Cjames.boswell:jsbIPL_38@webproxy-eh:8080/",
+  "https-proxy":"http://IPLBATH%5Cjames.boswell:jsbIPL_38@webproxy-eh:8080/",
+  "strict-ssl" : false
+}
