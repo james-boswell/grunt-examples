@@ -16,7 +16,8 @@ module.exports = function (grunt) {
                 }]
             },
             options : {
-                sourceMap : true
+                sourceMap : true,
+                sourceMapIn : '.tmp/concat/vendor.js.map'
             }
         },
         // validate HTML
@@ -74,7 +75,8 @@ module.exports = function (grunt) {
                 extDot: 'last'
             },
             options : {
-                sourceMap : true
+                sourceMap : true,
+                sourceMapIn : '.tmp/concat/vendor.css.map'
             }
         },
         wiredep: {
@@ -102,7 +104,21 @@ module.exports = function (grunt) {
                 src: '**',
                 dest: 'dist/',
             },
-        }
+        },
+        watch: {
+            all: {
+                files: ['src/js/**/*.js', 'src/less/**/*.less','src/html/**/*.html'],
+                tasks: ['default'],
+                options: {
+                    spawn: false
+                }
+            }
+        },
+        concat: {
+            options : {
+                sourceMap : true
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -114,6 +130,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', [
         'clean',
@@ -129,4 +146,14 @@ module.exports = function (grunt) {
         'cssmin',
         'usemin'
     ]);
+
+    grunt.registerTask('runServer', ['server', 'watch']);
+
+    grunt.registerTask('server', 'Start a custom web server', function() {
+        var express = require('express');
+        var app = express();
+        app.use(express.static('dist/'));
+        app.listen(8000);
+        grunt.log.writeln('Started web server on port 8000');
+    });
 };
