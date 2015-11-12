@@ -7,17 +7,8 @@ module.exports = function (grunt) {
             files: ['dist/**/*.*']
         },
         uglify : {
-            development : {
-                files: [{
-                    expand: true,
-                    cwd: 'src/js',
-                    dest: 'dist/js',
-                    src: '**/*.js'
-                }]
-            },
             options : {
                 sourceMap : true,
-                sourceMapIn : '.tmp/concat/vendor.js.map'
             }
         },
         // validate HTML
@@ -88,7 +79,8 @@ module.exports = function (grunt) {
             // source file
             html: 'dist/test.html',
             options: {
-                dest: 'dist'
+                dest: 'dist',
+                flow : { steps: { js: ['uglify'], css: ['concat', 'cssmin'] }, post: {} }
             }
         },
 
@@ -141,7 +133,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('min', [
         'useminPrepare',
-        'concat',
         'uglify',
         'cssmin',
         'usemin'
