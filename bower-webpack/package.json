@@ -1,0 +1,32 @@
+{
+  "name": "webpack-starter-1",
+  "version": "1.0.0",
+  "description": "webpack starter part 1",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Boswell",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "bower-webpack-plugin": "^0.1.9",
+    "css-loader": "^0.22.0",
+    "file-loader": "^0.8.4",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-webpack": "^1.0.11",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.4",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "angular": "^1.4.6",
+    "angular-animate": "^1.4.6",
+    "angular-aria": "^1.4.6",
+    "angular-material": "^0.11.4",
+    "angular-material-icons": "^0.6.0"
+  }
+}

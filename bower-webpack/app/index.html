@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="first-webpack">
+<head>
+  <meta charset="UTF-8">
+  <title>Webpack Angular Part 1</title>
+</head>
+<body layout="column" ng-cloak>
+    <section layout="row" flex>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" flex>
+       <md-toolbar>
+           <h2 class="md-toolbar-tools" >Menu</h2>
+       </md-toolbar>
+       <md-content ng-controller="sideBarController" layout="column">
+           <md-button layout-align="left" class="menu-item" aria-hidden="false" ng-click="home()">
+               <span>Home <ng-md-icon icon="home"></ng-md-icon></span>
+           </md-button>
+           <md-button layout-align="left" class="menu-item" aria-hidden="false" ng-click="gallery()">
+               <span>Gallery <ng-md-icon icon="camera_alt"></ng-md-icon></span>
+           </md-button>
+           <md-button layout-align="left" class="menu-item" aria-hidden="false"  ng-click="contact()">
+               <span>Contact <ng-md-icon icon="email"></ng-md-icon></span>
+           </md-button>
+       </md-content>
+    </md-sidenav>
+    <md-content ng-controller="mainController" flex>
+        <div>{{content}}</div>
+    </md-content>
+    </section>
+
+<script src="bundle.js"></script>
+</body>
+</html>
